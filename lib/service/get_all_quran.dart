@@ -10,7 +10,7 @@ class Service_Get {
 
     if (response.hashCode == 200) {
       print('success');
-      return AyatModel.fromJson(response.body);
+      return AyatModel.fromJson(jsonDecode(response.body));
     } else {
       print('----12--------error');
       throw Exception('error');
