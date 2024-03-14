@@ -8,8 +8,9 @@ class Service_Get {
     http.Response response = await http.get(Uri.parse(
         'https://quran-hadith-api.onrender.com/api/v1/surahs/$number'));
 
-    if (response.hashCode == 200) {
+    if (response.statusCode == 200) {
       print('success');
+      
       return AyatModel.fromJson(jsonDecode(response.body));
     } else {
       print('----12--------error');

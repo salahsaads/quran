@@ -1,13 +1,13 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:quran/const/constent.dart';
 import 'package:quran/model/ayat_model.dart';
-import 'package:quran/service/get_all_for.dart';
+import 'package:quran/service/get_all_quran.dart';
 
 class Quran extends StatefulWidget {
   Quran({super.key});
@@ -77,18 +77,21 @@ class CustomCard extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Text(ayatModel.type,
-                            style: TextStyle(color: Colors.grey)),
-                        SizedBox(
-                          width: 20,
-                        ),
+                        Text(
+                          ayatModel.type,
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Marhey'),
+                        )
                       ],
                     ),
                   ],
                 ),
               ),
               SizedBox(
-                width: 30,
+                width: 70,
               ),
               Text(
                 ayatModel.surahName,
@@ -106,7 +109,7 @@ class CustomCard extends StatelessWidget {
 
 class List_View extends StatelessWidget {
   List_View({super.key, required this.data});
-  List<AyatModel> data;
+  AyatModel data;
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +117,7 @@ class List_View extends StatelessWidget {
         itemCount: 10,
         itemBuilder: (context, i) {
           return CustomCard(
-            ayatModel: data[i],
+            ayatModel: data,
           );
         });
   }
@@ -133,20 +136,23 @@ class _MyWidgetState extends State<MyWidget> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    futuer = LoopGet().LoopGetALL();
+    // futuer = LoopGet().LoopGetALL();
+    futuer = Service_Get().Get(number: 1);
   }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<AyatModel>>(
+    return FutureBuilder<AyatModel>(
         future: futuer,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return List_View(
-              data: snapshot.data!,
+            return Expanded(
+              child: List_View(
+                data: snapshot.data!,
+              ),
             );
           } else {
-            return CircularProgressIndicator();
+            return Expanded(child: CircularProgressIndicator());
           }
         });
   }
