@@ -12,7 +12,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<Widget> list = [Quran(), const Ayat()];
+  List<Widget> list = [Quran(), Ayat()];
 
   int x = 0;
 
@@ -31,10 +31,25 @@ class _HomeState extends State<Home> {
         padding: const EdgeInsets.all(20),
         backgroundColor: main_color,
         tabs: [
-          const GButton(icon: Icons.query_stats_rounded, text: 'قرءان'),
           const GButton(
-            icon: Icons.quora_rounded,
+            icon: Icons.book,
+            text: 'قرءان',
+            textStyle: TextStyle(
+                color: Colors.white,
+                height: 2,
+                fontSize: 18,
+                // fontWeight: FontWeight.bold,
+                fontFamily: 'Marhey'),
+          ),
+          const GButton(
+            icon: Icons.book,
             text: 'احاديث',
+            textStyle: TextStyle(
+                color: Colors.white,
+                height: 2,
+                fontSize: 18,
+                // fontWeight: FontWeight.bold,
+                fontFamily: 'Marhey'),
           )
         ],
       ),

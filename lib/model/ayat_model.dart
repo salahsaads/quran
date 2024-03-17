@@ -14,10 +14,10 @@ class AyatModel {
 
   factory AyatModel.fromJson(jasnData) {
     return AyatModel(
-        number: jasnData['data']['doc']['number'],
-        surahName: jasnData['data']['doc']['surahName'],
-        surahNameEn: jasnData['data']['doc']['surahNameEn'],
-        type: jasnData['data']['doc']['type'],
-        text: jasnData['data']['doc']['text']);
+        number: jasnData['number'],
+        surahName: jasnData['surahName'],
+        surahNameEn: jasnData['surahNameEn'],
+        type: jasnData['type'],
+        text: jasnData['text']);
   }
 }
