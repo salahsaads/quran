@@ -54,61 +54,58 @@ class CustomCard extends StatelessWidget {
       },
       child: Card(
         shadowColor: main_color,
-        child: Container(
-            height: 80,
-            width: MediaQuery.of(context).size.width,
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                Text(
-                  '${ayatModel.number}',
-                  style: TextStyle(
-                      color: main_color,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: 20,
-                    top: 10,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Container(
+              height: 80,
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '${ayatModel.number}',
+                    style: TextStyle(
+                        color: main_color,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700),
                   ),
-                  child: Column(
-                    children: [
-                      Text(
-                        ayatModel.surahNameEn,
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 20),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            ayatModel.type,
-                            style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Marhey'),
-                          )
-                        ],
-                      ),
-                    ],
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 10,
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          ayatModel.surahNameEn,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 20),
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              ayatModel.type,
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Marhey'),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 60,
-                ),
-                Text(
-                  ayatModel.surahName,
-                  style: TextStyle(
-                      color: main_color,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Marhey'),
-                )
-              ],
-            )),
+                  Text(
+                    ayatModel.surahName,
+                    style: TextStyle(
+                        color: main_color,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Marhey'),
+                  )
+                ],
+              )),
+        ),
       ),
     );
   }

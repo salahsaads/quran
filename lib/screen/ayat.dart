@@ -52,25 +52,29 @@ class CustomCard extends StatelessWidget {
       child: Card(
         shadowColor: main_color,
         child: Container(
+            alignment: Alignment.centerRight,
             child: Row(
-          children: [
-            const SizedBox(
-              width: 20,
-            ),
-            Expanded(
-              child: Text(
-                '${ayatModel.text}',
-                style: const TextStyle(
-                    color: Color(0xff180b37),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700),
-              ),
-            ),
-            const SizedBox(
-              width: 60,
-            ),
-          ],
-        )),
+              children: [
+                const SizedBox(
+                  width: 20,
+                ),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: Text(
+                      '${ayatModel.text}',
+                      style: const TextStyle(
+                          color: Color(0xff180b37),
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+              ],
+            )),
       ),
     );
   }
